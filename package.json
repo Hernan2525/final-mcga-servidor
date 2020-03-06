@@ -14,7 +14,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node --inspect src/index.js"
+    "test": "node --inspect src/index.js",
+    "server": "node src/index.js"
   },
   "repository": {
     "type": "git",
