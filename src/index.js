@@ -118,7 +118,9 @@ app.get('/checkToken', function(req, res) {
 //Ruta POST para login de usuarios registrados
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body);
   UserSchema.findOne({ email }, function(err, user) {
+    console.log(user);
     if (err) {
       console.error(err);
       res.status(500)
