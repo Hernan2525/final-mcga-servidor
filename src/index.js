@@ -120,7 +120,8 @@ app.post('/login', (req, res) => {
   const { email, password } = req.body;
   console.log(req.body);
   UserSchema.findOne({ email }, function(err, user) {
-    console.log(user);
+    console.log('1',user);
+    console.log('2',err);
     if (err) {
       console.error(err);
       res.status(500)
@@ -133,7 +134,9 @@ app.post('/login', (req, res) => {
           error: 'Incorrect email or password'
         });
     } else {
+      console.log('3',password);
       user.isCorrectPassword(password, function(err, same) {
+        console.log('4',same);
         if (err) {
           res.status(500)
             .json({
@@ -145,11 +148,14 @@ app.post('/login', (req, res) => {
               error: 'Incorrect email or password'
           });
         } else {
+          console.log('5',email);
           // Issue token
           const payload = { email };
           const token = jwt.sign(payload, secretsign, {
             expiresIn: '1h'
           });
+
+            console.log('6',token);
 
           res.status(200).send({
               success: true,
