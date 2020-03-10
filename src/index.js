@@ -155,7 +155,7 @@ app.post('/login', (req, res) => {
             expiresIn: '1h'
           });
 
-            console.log('6','asdfasdfsa');
+            console.log('6',token);
 
           res.status(200).send({
               success: true,
